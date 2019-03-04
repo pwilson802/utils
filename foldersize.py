@@ -5,7 +5,7 @@ import os
 parser = argparse.ArgumentParser(description='Find the size of folders')
 parser.add_argument('foldername', help='The top folder to check the size of')
 parser.add_argument('--topfolders', '-t', type=int, help='The top number of folders to show')
-parser.add_argument('--version', action='version', version='%(prog)s 2.0')
+parser.add_argument('--version', action='version', version='%(prog)s 1.0')
 
 args = parser.parse_args()
 # myfolder = sys.argv[1]
