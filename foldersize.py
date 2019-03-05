@@ -8,6 +8,7 @@ parser.add_argument('--topfolders', '-t', type=int, help='The top number of fold
 parser.add_argument('--version', action='version', version='%(prog)s 1.0')
 
 args = parser.parse_args()
+foldername = args.filename
 # myfolder = sys.argv[1]
 
 totalsize = 0
