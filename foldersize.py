@@ -8,7 +8,7 @@ parser.add_argument('--topfolders', '-t', type=int, help='The top number of fold
 parser.add_argument('--version', action='version', version='%(prog)s 1.0')
 
 args = parser.parse_args()
-foldername = args.filename
+foldername = args.foldername
 # myfolder = sys.argv[1]
 
 totalsize = 0
@@ -25,6 +25,7 @@ for folder, x, files in os.walk(foldername):
     totalsize += foldersize
 allfolders.sort(key=lambda k: k[1], reverse=True)
 
-print(totalsize / 1000 / 1000)
-for x in allfolders[:5]:
-    print('{0}: {1:.2f}'.format(x[0], x[1] / 1000 / 1000))
+print('{0:.2f}'.format(totalsize / 1000 / 1000))
+if args.topfolders:
+    for x in allfolders[:args.topfolders]:
+        print('{0}: {1:.2f}'.format(x[0], x[1] / 1000 / 1000))
