@@ -31,7 +31,7 @@ while not url.endswith('#'):
         imagefile = open(os.path.join('xkcd', os.path.basename(comicUrl)), 'wb')
         for chunk in res.iter_content(100000):
             imageFile.write(chunk)
-        imageFile.close()
+        imagefile.close()
 
     # Get the Prev button's url
     prevLink = soup.select('a[rel="prev"]')[0]
