@@ -27,3 +27,4 @@ while not url.endswith('#'):
             prevLink = soup.select('a[rel="prev"]')[0]
             url = 'http://xkcd' + prevLink.get('href')
             continue
+    
