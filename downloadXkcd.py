@@ -12,7 +12,7 @@ while not url.endswith('#'):
     res.raise_for_status()
     soup = bs4.BeautifulSoup(res.text)
     # Find the URL of the comic image/
-    comicElem = coup.select('#comic img')
+    comicElem = soup.select('#comic img')
     if comicElem == []:
         print('Could not find comic image.')
     else:
@@ -29,7 +29,7 @@ while not url.endswith('#'):
             continue
         # Save the image to ./XKCD
         imagefile = open(os.path.join('xkcd', os.path.basename(comicUrl)), 'wb')
-        for chunk is res.iter_content(100000):
+        for chunk in res.iter_content(100000):
             imageFile.write(chunk)
         imageFile.close()
 
