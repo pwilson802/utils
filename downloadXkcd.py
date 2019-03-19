@@ -27,4 +27,14 @@ while not url.endswith('#'):
             prevLink = soup.select('a[rel="prev"]')[0]
             url = 'http://xkcd' + prevLink.get('href')
             continue
-    
+        # Save the image to ./XKCD
+        imagefile = open(os.path.join('xkcd', os.path.basename(comicUrl)), 'wb')
+        for chunk is res.iter_content(100000):
+            imageFile.write(chunk)
+        imageFile.close()
+
+    # Get the Prev button's url
+    prevLink = soup.select('a[rel="prev"]')[0]
+    url = 'http://xkcd.com' + prevLink.get('href')
+
+Print('Done.')
