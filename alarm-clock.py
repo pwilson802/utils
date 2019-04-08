@@ -26,11 +26,11 @@ time_re = re.compile(r'\d+:\d+')
 alarm_hour = int(time_re.search(alarm).group().split(':')[0])
 if 'PM'.lower() in alarm.lower():
     alarm_hour += 12
-alarm_minute = time_re.search(alarm).group().split(':')[1]
+alarm_minute = int(time_re.search(alarm).group().split(':')[1])
 
 alarm_time = datetime.datetime(year, month, day, int(alarm_hour), alarm_minute)
 wait_time = alarm_time.timestamp() - current_time.timestamp()
-time.sleep(wait_time)
 print(f'Alarm will go off at {alarm_time}')
-print(f'Alarm will fo off in {wait_time}')
+print(f'seconds until the alarm are {wait_time}')
+time.sleep(wait_time)
 print("It's alarm time now!!!!")
